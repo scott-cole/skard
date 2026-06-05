@@ -3,24 +3,33 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  background: #0f0f23;
+  background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 50%, #0f0f23 100%);
   color: #eee;
-  font-family: sans-serif;
 }
 
 .endTurnBtn {
   align-self: center;
-  margin: 16px;
-  padding: 12px 32px;
+  margin: 16px auto 32px;
+  padding: 14px 48px;
   font-size: 1.1rem;
-  border: 2px solid #888;
-  border-radius: 8px;
-  background: #1a1a2e;
-  color: #eee;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid #f1c40f;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0f0f23 100%);
+  color: #f1c40f;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(241, 196, 15, 0.2);
 }
 
 .endTurnBtn:hover {
-  background: #2a2a4e;
+  background: linear-gradient(180deg, #2a2a4e 0%, #1a1a2e 100%);
+  box-shadow: 0 6px 20px rgba(241, 196, 15, 0.3);
+  transform: translateY(-2px);
+}
+
+.endTurnBtn:active {
+  transform: translateY(0);
 }

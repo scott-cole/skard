@@ -6,10 +6,9 @@ interface StartScreenProps {
 export default function StartScreen({ onStart }: StartScreenProps) {
   return (
     <div className={styles.container}>
-      <h1>Skard</h1>
-      <h2>Welcome to the card battle game shit</h2>
-      <h3>Instructions.....</h3>
-      <button type="button" role="button" onClick={onStart}>
+      <h1 className={styles.title}>Skard</h1>
+      <p className={styles.subtitle}>A card battle game</p>
+      <button className={styles.startBtn} type="button" onClick={onStart}>
         Start Game
       </button>
     </div>

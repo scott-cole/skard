@@ -20,7 +20,7 @@ export function EnemyPanel({ enemies }: EnemyPanelProps) {
           <span>
             {enemy.hp}/{enemy.maxHp}
           </span>
-          <div>Intent: {enemy.intent}</div>
+          <div>{enemy.intent === "attack" ? "⚔️" : enemy.intent === "buff" ? "✨" : "💀"} {enemy.intent}</div>
         </div>
       ))}
     </div>

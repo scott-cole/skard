@@ -2,48 +2,72 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 12px;
-  background: #16213e;
+  padding: 12px 24px;
+  background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
   color: #eee;
-  border-radius: 8px;
-  margin: 8px;
+  border: 2px solid #333;
+  border-radius: 12px;
+  margin: 8px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .hpSection {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.hpSection > span:first-child {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.hpSection > span:last-child {
+  font-size: 0.9rem;
+  font-weight: bold;
+  min-width: 48px;
 }
 
 .hpBarOuter {
   width: 200px;
-  height: 20px;
-  background: #333;
-  border-radius: 4px;
+  height: 18px;
+  background: #2a2a3e;
+  border-radius: 9px;
   overflow: hidden;
+  border: 1px solid #444;
 }
 
 .hpBarInner {
   height: 100%;
-  background: #e74c3c;
-  transition: width 0.3s;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  transition: width 0.3s ease;
+  border-radius: 9px;
 }
 
 .energySection {
   display: flex;
   gap: 4px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .energyFilled {
   opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(241, 196, 15, 0.5));
 }
 
 .energyEmpty {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .blockSection {
   font-size: 1.2rem;
   font-weight: bold;
+  color: #3498db;
+  background: #0c2d3f;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #3498db;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }

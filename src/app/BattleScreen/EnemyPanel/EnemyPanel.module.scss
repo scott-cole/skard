@@ -2,12 +2,12 @@
   display: flex;
   justify-content: center;
   gap: 24px;
-  padding: 16px;
+  padding: 24px 16px 16px;
 }
 
 .enemyCard {
   border: 2px solid #555;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 16px;
   width: 160px;
   background: #1a1a2e;
@@ -16,18 +16,42 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.enemyCard > div:first-child {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e74c3c;
 }
 
 .hpBarOuter {
   width: 100%;
-  height: 16px;
-  background: #333;
-  border-radius: 4px;
+  height: 14px;
+  background: #2a2a3e;
+  border-radius: 7px;
   overflow: hidden;
+  border: 1px solid #444;
 }
 
 .hpBarInner {
   height: 100%;
-  background: #e74c3c;
-  transition: width 0.3s;
+  background: linear-gradient(90deg, #e74c3c, #ff6b6b);
+  transition: width 0.3s ease;
+  border-radius: 7px;
+}
+
+.enemyCard span {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.enemyCard > div:last-child {
+  font-size: 0.9rem;
+  color: #f1c40f;
+  background: #2a2a3e;
+  padding: 4px 12px;
+  border-radius: 12px;
 }

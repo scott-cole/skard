@@ -8,12 +8,16 @@ interface CardProps {
 }
 
 export function Card({ card, onClick }: CardProps) {
+  const kindClass = styles[card.kind] || "";
+
   return (
-    <div className={styles.card} onClick={onClick}>
-      <div>{card.name}</div>
-      <div>{card.cost}</div>
-      {card.kind === "attack" && <div>Deal {card.damage} Damage</div>}
-      {card.kind === "block" && <div>Gain {card.block} Block</div>}
+    <div className={`${styles.card} ${kindClass}`} onClick={onClick}>
+      <div className={styles.costBadge}>{card.cost}</div>
+      <div className={styles.cardName}>{card.name}</div>
+      <div className={styles.effect}>
+        {card.kind === "attack" && <span>Deal {card.damage} Damage</span>}
+        {card.kind === "block" && <span>Gain {card.block} Block</span>}
+      </div>
     </div>
   );
 }

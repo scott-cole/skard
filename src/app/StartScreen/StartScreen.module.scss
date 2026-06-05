@@ -1,6 +1,54 @@
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%);
+  color: #eee;
+  gap: 16px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: #f1c40f;
+  text-shadow: 0 0 20px rgba(241, 196, 15, 0.3), 0 0 60px rgba(241, 196, 15, 0.1);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #888;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0 0 32px;
+}
+
+.startBtn {
+  padding: 16px 64px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: 2px solid #f1c40f;
+  border-radius: 30px;
+  background: transparent;
+  color: #f1c40f;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(241, 196, 15, 0.2);
+}
+
+.startBtn:hover {
+  background: #f1c40f;
+  color: #0f0f23;
+  box-shadow: 0 6px 24px rgba(241, 196, 15, 0.4);
+  transform: translateY(-2px);
+}
+
+.startBtn:active {
+  transform: translateY(0);
 }
