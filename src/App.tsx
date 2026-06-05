@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { drawCard } from "./game.ts";
+import { drawCard, playCard, endTurn, enemyTurn } from "./game.ts";
 import type { GameState } from "./types.ts";
 import StartScreen from "./app/StartScreen";
+import { BattleScreen } from "./app/BattleScreen";
 
 function App() {
   const [state, setState] = useState<GameState | null>(null);
@@ -67,7 +68,31 @@ function App() {
     const withHand = drawCard(initialState, 5);
     setState(withHand);
   }
-  if (state) return <div>{JSON.stringify(state)}</div>;
+  function handlePlayCard(handIndex: number) {
+    setState((prev) => {
+      if (!prev || prev.phase !== "player_turn") return prev;
+      return playCard(prev, handIndex, 0);
+    });
+  }
+
+  function handleEndTurn() {
+    setState((prev) => {
+      if (!prev) return prev;
+      const afterEnd = endTurn(prev);
+      const afterEnemy = enemyTurn(afterEnd);
+      return afterEnemy;
+    });
+  }
+
+  if (state) {
+    return (
+      <BattleScreen
+        state={state}
+        onPlayCard={handlePlayCard}
+        onEndTurn={handleEndTurn}
+      />
+    );
+  }
   return <StartScreen onStart={startBattle} />;
 }
 

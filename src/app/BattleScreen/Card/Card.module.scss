@@ -1,0 +1,19 @@
+.card {
+  cursor: pointer;
+  border: 2px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  width: 120px;
+  background: #1a1a2e;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  transition: transform 0.1s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #888;
+}

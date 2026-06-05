@@ -1,0 +1,26 @@
+.battleScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: #0f0f23;
+  color: #eee;
+  font-family: sans-serif;
+}
+
+.endTurnBtn {
+  align-self: center;
+  margin: 16px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  border: 2px solid #888;
+  border-radius: 8px;
+  background: #1a1a2e;
+  color: #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.endTurnBtn:hover {
+  background: #2a2a4e;
+}
