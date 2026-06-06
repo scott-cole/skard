@@ -1,3 +1,5 @@
+import startBg from "../../assets/startscreen.jpg";
+
 import styles from "./StartScreen.module.scss";
 
 interface StartScreenProps {
@@ -5,9 +7,8 @@ interface StartScreenProps {
 }
 export default function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Skard</h1>
-      <p className={styles.subtitle}>A card battle game</p>
+    <div className={styles.container} style={{ backgroundImage: `url(${startBg})` }}>
+      <div className={styles.spacer} />
       <button className={styles.startBtn} type="button" onClick={onStart}>
         Start Game
       </button>

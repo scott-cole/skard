@@ -43,18 +43,22 @@ export function playCard(
         block: state.block + card.block,
         discard: [...state.discard, card],
       };
-    case "attack":
-      const newEnemies = state.enemies.map((e, i) =>
-        i === enemyIndex ? { ...e, hp: e.hp - card.damage } : e,
-      );
+    case "attack": {
+      const newEnemies = state.enemies
+        .map((e, i) =>
+          i === enemyIndex ? { ...e, hp: Math.max(0, e.hp - card.damage) } : e,
+        )
+        .filter((e) => e.hp > 0);
 
       return {
         ...state,
         hand: newHand,
         energy: newEnergy,
         enemies: newEnemies,
+        phase: newEnemies.length === 0 ? "victory" : state.phase,
         discard: [...state.discard, card],
       };
+    }
     default:
       return {
         ...state,
@@ -93,10 +97,12 @@ export function enemyTurn(state: GameState): GameState {
     }
   }
 
+  const defeated = Math.max(0, newHp) <= 0;
+
   return {
     ...state,
-    hp: newHp,
+    hp: Math.max(0, newHp),
     block: newBlock,
-    phase: "player_turn",
+    phase: defeated ? "defeat" : "player_turn",
   };
 }

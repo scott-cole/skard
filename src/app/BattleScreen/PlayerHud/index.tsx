@@ -1,3 +1,4 @@
+import hudImg from "../../../assets/hud_bar.png";
 import styles from "./PlayerHUD.module.scss";
 
 interface PlayerHUDProps {
@@ -17,6 +18,7 @@ export function PlayerHUD({
 }: PlayerHUDProps) {
   return (
     <div className={styles.hud}>
+      <img src={hudImg} alt="" className={styles.bgImg} />
       <div className={styles.hpSection}>
         <span>HP</span>
         <div className={styles.hpBarOuter}>

@@ -78,19 +78,11 @@ function App() {
       enemies: [
         {
           id: 1,
-          name: "Goblin",
+          name: "Evil EE",
           hp: 20,
           maxHp: 20,
           intent: "attack",
           damage: 6,
-        },
-        {
-          id: 1,
-          name: "Werewolf",
-          hp: 100,
-          maxHp: 100,
-          intent: "attack",
-          damage: 10,
         },
       ],
     };
@@ -113,16 +105,53 @@ function App() {
     });
   }
 
-  if (state) {
+  if (!state) return <StartScreen onStart={startBattle} />;
+
+  if (state.phase === "victory") {
     return (
-      <BattleScreen
-        state={state}
-        onPlayCard={handlePlayCard}
-        onEndTurn={handleEndTurn}
-      />
+      <div style={{
+        display: "flex", flexDirection: "column", alignItems: "center",
+        justifyContent: "center", minHeight: "100vh", color: "#fff",
+        fontFamily: "inherit", gap: 24,
+      }}>
+        <h1 style={{ fontSize: "4rem", margin: 0 }}>You Win!</h1>
+        <button onClick={startBattle} style={{
+          padding: "14px 56px", fontSize: "1.2rem", fontWeight: "bold",
+          border: "none", background: "#fffef7", color: "#333",
+          cursor: "pointer", fontFamily: "inherit", textTransform: "uppercase",
+        }}>
+          Play Again
+        </button>
+      </div>
     );
   }
-  return <StartScreen onStart={startBattle} />;
+
+  if (state.phase === "defeat") {
+    return (
+      <div style={{
+        display: "flex", flexDirection: "column", alignItems: "center",
+        justifyContent: "center", minHeight: "100vh", color: "#fff",
+        fontFamily: "inherit", gap: 24,
+      }}>
+        <h1 style={{ fontSize: "4rem", margin: 0 }}>Defeated</h1>
+        <button onClick={startBattle} style={{
+          padding: "14px 56px", fontSize: "1.2rem", fontWeight: "bold",
+          border: "none", background: "#fffef7", color: "#333",
+          cursor: "pointer", fontFamily: "inherit", textTransform: "uppercase",
+        }}>
+          Try Again
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <BattleScreen
+      state={state}
+      onPlayCard={handlePlayCard}
+      onEndTurn={handleEndTurn}
+    />
+  );
 }
 
 export default App;

@@ -2,6 +2,7 @@ import type { GameState } from "../../types";
 import { EnemyPanel } from "./EnemyPanel";
 import { PlayerHUD } from "./PlayerHud";
 import { Hand } from "./Hand";
+import nextImg from "../../assets/next.png";
 
 import styles from "./BattleScreen.module.scss";
 
@@ -15,6 +16,8 @@ export function BattleScreen({ state, onPlayCard, onEndTurn }: BattleScreenProps
   return (
     <div className={styles.battleScreen}>
       <EnemyPanel enemies={state.enemies} />
+      <div className={styles.spacer} />
+      <Hand cards={state.hand} onPlayCard={onPlayCard} />
       <PlayerHUD
         hp={state.hp}
         maxHp={state.maxHp}
@@ -22,8 +25,11 @@ export function BattleScreen({ state, onPlayCard, onEndTurn }: BattleScreenProps
         maxEnergy={state.maxEnergy}
         block={state.block}
       />
-      <Hand cards={state.hand} onPlayCard={onPlayCard} />
-      <button className={styles.endTurnBtn} onClick={onEndTurn}>
+      <button
+        className={styles.endTurnBtn}
+        onClick={onEndTurn}
+        style={{ backgroundImage: `url(${nextImg})` }}
+      >
         End Turn
       </button>
     </div>

@@ -1,0 +1,33 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Caveat', 'Chalkboard SE', 'Comic Sans MS', cursive;
+  background: #0d0d1a;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(40, 30, 60, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(20, 15, 40, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(30, 20, 50, 0.3) 0%, transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.01) 3px,
+      rgba(255, 255, 255, 0.01) 4px
+    );
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
